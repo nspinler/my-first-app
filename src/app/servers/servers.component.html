@@ -18,13 +18,19 @@
             
             <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
             
-            <p>Server Creation Status: {{ serverCreationStatus }}</p>
+            <p *ngIf="serverCreated">Server Creation Status: {{ serverCreationStatus }}</p>
+            <!-- <p *ngIf="serverCreated; else noServer">Server Creation Status: {{ serverCreationStatus }}</p>
+            <ng-template #noServer>
+                <p>No server was created</p>   
+            </ng-template> -->
             <p>Allow New Server: <span [innerText]="allowNewServer"></span></p>
-            <app-server></app-server>
             
         </div>
     </div>
 </div>
+<hr>
+
+<app-server *ngFor="let aServer of servers"></app-server>
 
 <hr>
 <div class="container">
