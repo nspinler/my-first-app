@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <label for="serverName">Server Name</label>
+            <!-- Event Binding 
+                <input 
+                type="text" 
+                id="serverName"
+                class="form-control"
+                (input)="onUpdateServerName($event)">
+            <p>Server Name: {{ serverName }}</p> -->
+            
+            <!-- Two-Way-DataBinding -->
+            <input type="text" id="serverName" class="form-control" [(ngModel)]="serverName">
+            <!-- <p>Server Name: {{ serverName }}</p> -->
+            <p></p>
+            
+            <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+            
+            <p>Server Creation Status: {{ serverCreationStatus }}</p>
+            <p>Allow New Server: <span [innerText]="allowNewServer"></span></p>
+            <app-server></app-server>
+            
+        </div>
+    </div>
+</div>
+
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h5>Assignment - DataBinding</h5>
+            <ol>
+                <li>Add a input field which updates a property ('username') via Two-Way-DataBinding</li>
+                <li>Output the username property via String Interpolation (in a parageraph below the input)</li>
+                <li>Add a button which may only be clicked if the username is NOT an empty String</li>
+                <li>Upon clicking the button, the username should be rest to an empty string</li>
+            </ol>
+            <label for="userName">User Name:</label>
+            <input type="text" id="userName" class="form-control" [(ngModel)]="userName">
+            <p>{{userName}}</p>
+
+            <button class="btn btn-primary" [disabled]="userName.trim().length==0" (click)="onClearUserName()">Clear
+                UserName</button>
+        </div>
+    </div>
+</div>
+<hr>
