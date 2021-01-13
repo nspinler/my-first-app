@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Ch2Assignment3Component implements OnInit {
 
   display: boolean = false;
-  buttonClicks: Array<string> = [];
+  buttonClicks: Array<Date> = [];
 
   constructor() { }
 
@@ -17,7 +17,8 @@ export class Ch2Assignment3Component implements OnInit {
 
   onToggleDisplay() {
     this.display = !this.display;
-    this.buttonClicks.push(this.buttonClicks.length + '');
+    //this.buttonClicks.push(this.buttonClicks.length + '');
+    this.buttonClicks.push(new Date());
   }
 
 }
