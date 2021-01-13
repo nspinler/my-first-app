@@ -1,0 +1,32 @@
+<h5>Chapter 2, Assignment3 - Directives ngIf, ngStyle, ngClass, ngFor</h5>
+<ul>
+    <li>Add a button which says 'Display Details'</li>
+    <li>Add a paragraph with any content of your choice</li>
+    <li>Toggle the displaying of the paragraph with the button created in the fist step</li>
+    <li>Log all button clicks in an array and output the array below the paragraph (maybe log a timestamp or simply increment number)</li>
+    <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
+</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <!--
+                [disabled]="userName.trim().length==0" 
+                (click)="onClearUserName()"
+            -->
+            <button 
+                class="btn btn-primary" 
+                (click)="onToggleDisplay()">Display Details</button>
+
+            <p *ngIf="display">This is a paragraph...</p>
+
+            <ul>
+                <!--[ngClass]="{'blueBackground': i>=5}"-->
+                <li 
+                    *ngFor="let i of buttonClicks"
+                    [ngStyle]="{backgroundColor: i>=5?'aqua':'white'}"
+                    [ngClass]="{'white-text': i>=5}"
+                    >Button Click: {{ i }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
